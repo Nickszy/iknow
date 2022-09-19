@@ -8,8 +8,7 @@
 
 ### 数据 data
 
-数据
-
+默认使用ifind数据
 
 ### 策略 strategy
 
@@ -18,4 +17,5 @@
 使用开源的解决方案进行设计。
 
 pushdeer：https://github.com/easychen/pushdeer
+
 企业微信： https://github.com/easychen/wecomchan

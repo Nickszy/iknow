@@ -1,0 +1,7 @@
+venv
+research/*
+readme
+config.json
+*.pyc
+*/__pycache__
+.vscode/settings.json

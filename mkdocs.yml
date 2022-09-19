@@ -1,0 +1,15 @@
+site_name: Compass for Investment 
+
+theme:
+  name: material
+  icon:
+    repo: simple/github
+  language: zh
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.top
+
+repo_url: https://github.com/Nickszy/iknow
+repo_name: Nickszy/iknow
+
