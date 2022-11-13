@@ -17,11 +17,12 @@ class TestSpiderItem(scrapy.Item):
     
 class YbItem(scrapy.Item):
     title  = scrapy.Field()
+    institution = scrapy.Field()
     author = scrapy.Field()
     date = scrapy.Field()
     type = scrapy.Field()
     url = scrapy.Field()
-    source_url = scrapy.Field()
+    source = scrapy.Field()
     content = scrapy.Field()
 
 class YbPDFItem(scrapy.Item):
