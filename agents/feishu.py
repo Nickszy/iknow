@@ -1,0 +1,2 @@
+class feishu:
+    pass
