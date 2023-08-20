@@ -1,14 +1,14 @@
-import requests
 import json
-
+# from functools import cached_property
+import requests
 
 class weread:
 
     def __init__(self) -> None:
-        self.skey = self._get_skey()
         pass
 
-    def _get_skey(self):
+    @property
+    def skey(self):
 
         url = "https://i.weread.qq.com/login"
 
@@ -35,19 +35,18 @@ class weread:
 
         response = requests.request("POST", url, headers=headers, data=payload)
 
-        print(response.text)
-        return response.json()["skey"]
+        return response.json()["accessToken"]
 
-    def _request(self, method: str, url: str, headers: dict = None, parload: dict = None, data: dict = None):
+    def _request(self, method: str, url: str, headers: dict = None, payload: dict = None, data: dict = None):
         '''
         # TODO 内部封装一个请求方法
         '''
         response = requests.request("GET", url, headers=headers, data=payload)
         if response.status_code != '200':
-            
-        
+            pass
         return response
-    def search(self, key: str, scope: str = '2'):
+
+    def search(self, key: str, scope: str = '2') -> list:
         '''
         查询通过 scope区分
         'scope': 0, 'name': '全部'},
