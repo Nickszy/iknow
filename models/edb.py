@@ -1,7 +1,7 @@
 
 from datetime import datetime
 from enum import Enum
-from type import Optional
+from typing import Optional
 from sqlmodel import SQLModel, Field
 
 
@@ -14,20 +14,20 @@ class frequency_type(str, Enum):
     unknown = 'none'
 
 
-class edb_info(SQLModel):
-    id: Optional[str] = Field(defalte=None, primary_key=True)
-    create_time: datetime = Field(default=datetime.datetime.now())
+class edb_info(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    create_time: datetime = Field(default=datetime.now())
     name: str
     start_time: datetime
     end_time: datetime
     source: str
-    frequence: frequency_type.Enum
+    frequence: frequency_type
     isvalid: bool = Field(default=1)
 
 
-class edb_data(SQLModel):
-    id: Optional[str] = Field(defalte=None, primary_key=True)
-    index: edb_info.id
+class edb_data(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    index: int = Field(foreign_key="edb_info.id")
     declaredate: datetime
     date: datetime
     value: str
