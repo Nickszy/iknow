@@ -1,11 +1,11 @@
 
 from typing import List
 import pandas as pd
-from sqlmodel import create_engine, SQLModel
+from sqlmodel import SQLModel, create_engine, Session, select
 
-url = "postgresql://fin:ceshi001@localhost:5432/finplan_test"
-
-engine = create_engine(url)
+# mysql_url = "mysql+pymysql://iknow:iknow@localhost:3306/iknow"
+sqlite_url = "sqlite:///datebase.db"
+engine = create_engine(sqlite_url)
 
 
 def create_db_and_tables():
@@ -23,3 +23,8 @@ def sqlmodel_to_df(objects: List[SQLModel]) -> pd.DataFrame:
     """
 
     return pd.DataFrame.from_records(map(dict, objects)).iloc[:, 1:]
+
+
+# if __name__ == "__main__":
+#     from models import *
+#     # create_db_and_tables()

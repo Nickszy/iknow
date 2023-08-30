@@ -1,13 +1,16 @@
 import json
+from functools import cached_property
+
 # from functools import cached_property
 import requests
+
 
 class weread:
 
     def __init__(self) -> None:
         pass
 
-    @property
+    @cached_property
     def skey(self):
 
         url = "https://i.weread.qq.com/login"
